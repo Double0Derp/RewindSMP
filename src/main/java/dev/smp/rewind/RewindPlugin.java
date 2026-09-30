@@ -20,6 +20,8 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
 import java.util.HashMap;
@@ -37,6 +39,9 @@ public final class RewindPlugin extends JavaPlugin implements Listener {
     private boolean requireSneak, protectWhileRewinding;
     private long tickCount;
     private boolean useGauge, useBossBar;
+    private boolean holdToRewind, fatigueEnabled;
+    private double fatiguePerSecond, fatigueMin, fatigueMax;
+    private int weaknessLvl, slownessLvl, miningFatigueLvl;
 
     /** Number of gauge fill steps; must match STEPS in tools/generate_pack.py */
     private static final int GAUGE_STEPS = 32;
@@ -74,6 +79,14 @@ public final class RewindPlugin extends JavaPlugin implements Listener {
         String mode = c.getString("hud-mode", "gauge").toLowerCase();
         useGauge = mode.equals("gauge") || mode.equals("both");
         useBossBar = mode.equals("bossbar") || mode.equals("both");
+        holdToRewind = c.getBoolean("hold-to-rewind", true);
+        fatigueEnabled = c.getBoolean("fatigue.enabled", true);
+        fatiguePerSecond = c.getDouble("fatigue.seconds-per-rewound-second", 2.0);
+        fatigueMin = c.getDouble("fatigue.min-seconds", 2.0);
+        fatigueMax = c.getDouble("fatigue.max-seconds", 60.0);
+        weaknessLvl = c.getInt("fatigue.weakness", 1);
+        slownessLvl = c.getInt("fatigue.slowness", 1);
+        miningFatigueLvl = c.getInt("fatigue.mining-fatigue", 0);
     }
 
     // ------------------------------------------------------------ player setup
@@ -119,6 +132,10 @@ public final class RewindPlugin extends JavaPlugin implements Listener {
             if (t == null || p.isDead()) continue;
 
             if (t.isRewinding()) {
+                if (t.isHoldRequired() && !p.isSneaking()) {
+                    stopRewind(p, t);
+                    continue;
+                }
                 stepRewind(p, t);
                 if (tickCount % 4 == 0) updateHud(p, t);
             } else {
@@ -133,19 +150,30 @@ public final class RewindPlugin extends JavaPlugin implements Listener {
 
     // ------------------------------------------------------------ rewinding
 
-    private void toggle(Player p) {
+    /** fromKey = triggered by Shift+F (hold mode applies); false = /rewind command (toggle). */
+    private void toggle(Player p, boolean fromKey) {
         if (!p.hasPermission("rewind.use")) return;
         PlayerTimeline t = timelines.get(p.getUniqueId());
         if (t == null) return;
-        if (t.isRewinding()) stopRewind(p, t); else startRewind(p, t);
+        if (t.isRewinding()) {
+            if (!(fromKey && holdToRewind)) stopRewind(p, t);
+        } else {
+            startRewind(p, t, fromKey && holdToRewind);
+        }
     }
 
-    private void startRewind(Player p, PlayerTimeline t) {
-        if (t.isEmpty() || t.getSeconds() < secondsPerSnapshot) {
+    private void startRewind(Player p, PlayerTimeline t, boolean hold) {
+        if (t.isEmpty()) {
+            p.sendActionBar(Component.text("Nothing to rewind yet - keep playing!", NamedTextColor.YELLOW));
+            return;
+        }
+        if (t.getSeconds() < secondsPerSnapshot) {
             p.sendActionBar(Component.text("Not enough rewind time!", NamedTextColor.RED));
             return;
         }
         t.setRewinding(true);
+        t.setHoldRequired(hold);
+        t.resetRewound();
         t.setLast(null);
         p.playSound(p.getLocation(), Sound.BLOCK_BEACON_DEACTIVATE, 1f, 1.5f);
         updateHud(p, t);
@@ -153,8 +181,11 @@ public final class RewindPlugin extends JavaPlugin implements Listener {
 
     private void stopRewind(Player p, PlayerTimeline t) {
         t.setRewinding(false);
+        t.setHoldRequired(false);
         PlayerTimeline.Snapshot last = t.getLast();
         if (last != null) p.setVelocity(last.velocity());
+        applyFatigue(p, t.getRewound());
+        t.resetRewound();
         p.playSound(p.getLocation(), Sound.BLOCK_BEACON_ACTIVATE, 1f, 1.5f);
         updateHud(p, t);
     }
@@ -169,9 +200,30 @@ public final class RewindPlugin extends JavaPlugin implements Listener {
             t.addSeconds(-secondsPerSnapshot, maxSeconds);
             apply(p, s);
             t.setLast(s);
+            t.addRewound(secondsPerSnapshot);
         }
         p.getWorld().spawnParticle(Particle.REVERSE_PORTAL,
                 p.getLocation().add(0, 1, 0), 12, 0.3, 0.5, 0.3, 0.05);
+    }
+
+    /** The weakness: rewinding leaves you drained for a while. Longer rewind = longer fatigue. */
+    private void applyFatigue(Player p, double rewoundSeconds) {
+        if (!fatigueEnabled || rewoundSeconds <= 0) return;
+        double secs = Math.max(fatigueMin, Math.min(fatigueMax, rewoundSeconds * fatiguePerSecond));
+        int ticks = (int) Math.round(secs * 20);
+        int maxTicks = (int) Math.round(fatigueMax * 20);
+        addFatigue(p, PotionEffectType.WEAKNESS, weaknessLvl, ticks, maxTicks);
+        addFatigue(p, PotionEffectType.SLOWNESS, slownessLvl, ticks, maxTicks);
+        addFatigue(p, PotionEffectType.MINING_FATIGUE, miningFatigueLvl, ticks, maxTicks);
+        p.sendMessage(Component.text("Time sickness for " + Math.round(secs) + "s...", NamedTextColor.GRAY));
+    }
+
+    private void addFatigue(Player p, PotionEffectType type, int level, int ticks, int maxTicks) {
+        if (level <= 0) return;
+        PotionEffect existing = p.getPotionEffect(type);
+        int carry = (existing != null && existing.getDuration() > 0 && existing.getAmplifier() == level - 1)
+                ? existing.getDuration() : 0;   // back-to-back rewinds stack
+        p.addPotionEffect(new PotionEffect(type, Math.min(maxTicks, ticks + carry), level - 1, false, true, true));
     }
 
     @SuppressWarnings("deprecation")
@@ -189,9 +241,9 @@ public final class RewindPlugin extends JavaPlugin implements Listener {
     @EventHandler
     public void onSwap(PlayerSwapHandItemsEvent e) {
         Player p = e.getPlayer();
-        if (requireSneak && !p.isSneaking()) return;
+        if ((requireSneak || holdToRewind) && !p.isSneaking()) return;
         e.setCancelled(true);
-        toggle(p);
+        toggle(p, true);
     }
 
     @EventHandler(ignoreCancelled = true)
@@ -273,7 +325,7 @@ public final class RewindPlugin extends JavaPlugin implements Listener {
             sender.sendMessage(Component.text("Players only."));
             return true;
         }
-        toggle(p);
+        toggle(p, false);
         return true;
     }
 }
