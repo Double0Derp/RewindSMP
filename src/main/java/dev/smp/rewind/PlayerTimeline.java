@@ -17,6 +17,8 @@ public final class PlayerTimeline {
     private double seconds;
     private boolean rewinding;
     private Snapshot last;
+    private boolean holdRequired;
+    private double rewound;
 
     public PlayerTimeline(int capacity, double seconds) {
         this.capacity = Math.max(1, capacity);
@@ -48,6 +50,15 @@ public final class PlayerTimeline {
 
     public boolean isRewinding() { return rewinding; }
     public void setRewinding(boolean r) { this.rewinding = r; }
+
+    /** True when rewinding only continues while the player keeps holding Shift. */
+    public boolean isHoldRequired() { return holdRequired; }
+    public void setHoldRequired(boolean h) { this.holdRequired = h; }
+
+    /** Seconds rewound during the current rewind (used to size the fatigue). */
+    public double getRewound() { return rewound; }
+    public void addRewound(double s) { this.rewound += s; }
+    public void resetRewound() { this.rewound = 0; }
 
     public Snapshot getLast() { return last; }
     public void setLast(Snapshot s) { this.last = s; }
