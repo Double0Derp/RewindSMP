@@ -11,7 +11,7 @@ snapshot-interval-ticks: 5   # record a snapshot every 5 ticks (0.25s)
 snapshots-per-tick: 1        # rewind speed: 1 = 5x real time, 2 = 10x, etc.
 
 # ---- Controls / safety ----
-require-sneak-swap: true     # Shift + F (swap-hand key) toggles rewind. /rewind always works.
+require-sneak-swap: true     # Must be sneaking (Shift) when pressing F. (Always on while hold-to-rewind is true.)
 protect-while-rewinding: true  # no damage taken while rewinding
 
 # ---- HUD ----
@@ -19,3 +19,23 @@ protect-while-rewinding: true  # no damage taken while rewinding
 # bossbar = plain boss bar (no resource pack needed)
 # both    = show both
 hud-mode: gauge
+
+# ---- Hold to rewind ----
+# true  = press Shift+F to start, then keep HOLDING Shift. Let go of Shift to stop.
+#         (Minecraft doesn't tell servers when F is held, so Shift is the "hold" key.)
+# false = Shift+F toggles rewind on/off.
+# The /rewind command always toggles.
+hold-to-rewind: true
+
+# ---- The weakness: time sickness ----
+# After a rewind you're drained for a while. Longer rewind = longer sickness.
+# Back-to-back rewinds stack up (until max-seconds).
+# Effect levels: 0 = off, 1 = level I, 2 = level II ...
+fatigue:
+  enabled: true
+  seconds-per-rewound-second: 2.0   # rewind 5s -> 10s of sickness
+  min-seconds: 2.0
+  max-seconds: 60.0
+  weakness: 1
+  slowness: 1
+  mining-fatigue: 0
