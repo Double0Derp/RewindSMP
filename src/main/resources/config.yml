@@ -1,0 +1,21 @@
+# ---- Rewind energy ----
+# Players earn `gain-seconds` of rewind every `gain-per-hours` hours of ONLINE time.
+# It accrues smoothly (every second), so partial intervals count too.
+max-seconds: 300        # bar cap (5 minutes)
+gain-seconds: 300       # 5 minutes...
+gain-per-hours: 6       # ...per 6 hours
+initial-seconds: 0      # what brand-new players start with
+
+# ---- Recording ----
+snapshot-interval-ticks: 5   # record a snapshot every 5 ticks (0.25s)
+snapshots-per-tick: 1        # rewind speed: 1 = 5x real time, 2 = 10x, etc.
+
+# ---- Controls / safety ----
+require-sneak-swap: true     # Shift + F (swap-hand key) toggles rewind. /rewind always works.
+protect-while-rewinding: true  # no damage taken while rewinding
+
+# ---- HUD ----
+# gauge   = circular clock gauge above the EXP bar (players need the resource pack!)
+# bossbar = plain boss bar (no resource pack needed)
+# both    = show both
+hud-mode: gauge

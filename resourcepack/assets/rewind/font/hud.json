@@ -1,0 +1,598 @@
+{
+ "providers": [
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_00.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue000"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_01.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue001"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_02.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue002"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_03.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue003"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_04.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue004"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_05.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue005"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_06.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue006"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_07.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue007"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_08.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue008"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_09.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue009"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_10.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue00a"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_11.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue00b"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_12.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue00c"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_13.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue00d"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_14.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue00e"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_15.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue00f"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_16.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue010"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_17.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue011"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_18.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue012"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_19.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue013"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_20.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue014"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_21.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue015"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_22.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue016"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_23.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue017"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_24.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue018"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_25.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue019"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_26.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue01a"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_27.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue01b"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_28.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue01c"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_29.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue01d"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_30.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue01e"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_31.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue01f"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/idle_32.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue020"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_00.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue100"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_01.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue101"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_02.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue102"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_03.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue103"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_04.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue104"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_05.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue105"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_06.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue106"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_07.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue107"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_08.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue108"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_09.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue109"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_10.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue10a"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_11.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue10b"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_12.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue10c"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_13.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue10d"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_14.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue10e"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_15.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue10f"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_16.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue110"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_17.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue111"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_18.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue112"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_19.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue113"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_20.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue114"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_21.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue115"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_22.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue116"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_23.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue117"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_24.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue118"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_25.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue119"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_26.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue11a"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_27.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue11b"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_28.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue11c"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_29.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue11d"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_30.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue11e"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_31.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue11f"
+   ]
+  },
+  {
+   "type": "bitmap",
+   "file": "rewind:gauge/rewind_32.png",
+   "ascent": -16,
+   "height": 18,
+   "chars": [
+    "\ue120"
+   ]
+  }
+ ]
+}

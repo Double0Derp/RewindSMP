@@ -1,0 +1,12 @@
+{
+ "pack": {
+  "pack_format": 46,
+  "supported_formats": [
+   46,
+   999
+  ],
+  "min_format": 46,
+  "max_format": 999,
+  "description": "Rewind HUD - circular clock gauge"
+ }
+}

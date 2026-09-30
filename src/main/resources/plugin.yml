@@ -1,0 +1,16 @@
+name: TimeRewind
+version: 1.0.0
+main: dev.smp.rewind.RewindPlugin
+api-version: '1.21'
+description: Earn rewind time and turn back your own clock.
+commands:
+  rewind:
+    description: Toggle rewind, or give rewind time (admin)
+    usage: /rewind [give <player> <seconds>]
+permissions:
+  rewind.use:
+    description: Allows using rewind
+    default: true
+  rewind.admin:
+    description: Allows giving rewind time
+    default: op
